@@ -2,13 +2,18 @@
 #pip install boto3
 #pip install awscli
 
-import boto3
-resource = boto3.resource("s3")
-resource.list_buckets()["Buckets"][0]["Name"]
-creation_date=resource.list_buckets()["BUckets"][0]["CreationDate"]
-creation_date.strftime("%d%m%y_%H:%M:%s")
+#import boto3
+#resource = boto3.resource("s3")
+#resource.list_buckets()["Buckets"][0]["Name"]
+#creation_date=resource.list_buckets()["BUckets"][0]["CreationDate"]
+#creation_date.strftime("%d%m%y_%H:%M:%s")
 
 #for buckets in s3_resource.list_buckets()["Buckets"]:
 #       print(buckets["Name"])
 #       print(buckets["CreationDate"])
-
+import boto3
+resource = boto3.client("s3")
+resource.list_buckets()["Buckets"][0]["Name"]
+for bucket in resource.list_buckets()["Buckets"]:
+        print(bucket["Name"])
+        print(bucket["CreationDate"])

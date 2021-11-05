@@ -1,0 +1,8 @@
+mport boto3
+s3 = boto3.resource("s3")
+bucket = s3.Bucket("pawan-totaltechnology1")
+response = bucket.create(
+    ACL='private',
+    CreateBucketConfiguration={
+        'LocationConstraint': 'ap-south-1' },
+)
